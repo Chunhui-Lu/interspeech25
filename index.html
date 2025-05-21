@@ -1,1 +1,532 @@
 
+<html>
+
+  <head>
+
+    <meta charset="UTF-8">
+
+    <title>Audio samples from "Robust neural GT language modeling with phoneme position prediction for zero-shot TTS"</title>
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
+
+  </head>
+
+  <body>
+
+    <article>
+
+      <header>
+
+        <h1>Audio samples from "Robust neural GT language modeling with phoneme position prediction for zero-shot TTS"</h1>
+
+      </header>
+
+    </article>
+    <p><b>Authors</b>: Chunhui Lu, Xue Wen, Liming Song, Junkwang Oh</p>
+
+
+
+    <div><b>Abstract:</b>
+
+        </br> Though large language models (LLMs) based methods have achieved remarkable progress in zero-shot  Text-to-Speech (TTS) synthesis, they suffer from robustness issues including mispronunciation, word skipping, and word repeating.
+To address these robustness challenges, we propose incorporating phoneme position prediction into the LLM-based TTS model. More concretely, given an input phoneme sequence as condition, our model autoregressively predicts acoustic codes and their corresponding phoneme positions within the input sequence synchronously. This mechanism ensures accurate and complete alignment between acoustic codes and phonemes. Experimental results demonstrate that our system significantly reduces phoneme skipping/repetition errors compared to strong baselines, achieving a 52.7\% relative reduction in character error rate while maintaining comparable performance in zero-shot TTS evaluations.
+    </div>
+
+    &nbsp;
+
+
+
+<p>This pages contains a set of speech samples used in our evaluations.<b>All utterances and speakers are unseen in model training.</b></p>
+ &nbsp;
+
+<h3>Compared systems</h3>
+  
+<ul>
+<b>GT</b>: ground-truth audio reconstructed by the UniAudio's GT model.<br>
+<b>VALL-E</b>: Implemented exactly following VALL-E, without incorporating any robustness improving techniques.<br>
+<b>VALL-E R</b>: Following VALL-E R, the system predicts acoustic codes and their corresponding phoneme identities synchronously and uses its decoding strategy.<br>
+<b>VALL-E R (Greedy)</b>: The same system as VALL-E R, but using greedy decoding. <br>
+<b>VALL-E BOTH</b>: Based on VALL-E, the system combines phoneme identity and position prediction. <br>
+<b>OURS</b>: Our proposed method.
+</ul>
+
+
+<h3>Wilcoxon signed-rank tests result</h3>
+    <p>Due to the limit paper space, here we attached the p-values of Wilcoxon signed-rank tests for all evaluations.</p>
+ &nbsp;
+<ul>
+<b>GT</b>: p-values between our system and all baselines are smaller than 1e-5.<br>
+<b>CMOS</b>: OURS vs GT (0.152), VALL-E vs GT (0.729), VALL-E R vs GT (0.925).<br>
+<b>SMOS</b>: OURS vs VALL-E (0.074), OURS vs VALL-E R (0.133).<br>
+</ul>
+These results demonstrate statistically significant superiority of our system in robustness (α=0.05), aligning with our core technical contributions.    
+ &nbsp;
+    
+<h3>Speech samples and alignment figures from objective evaluations</h3>
+
+We only show some hard sentence samples here as they're more representative.<br>
+<table>
+  <tbody>
+    <tr>
+      <td align="center"> </td>
+      <td align="center"><b>Prompt</b></td>
+      <td align="center">VALL-E</td>
+      <td align="center">VALL-E R</td>
+      <td align="center">VALL-E R(Greedy)</td>
+      <td align="center">VALL-E BOTH</td>
+      <td align="center"><b>OURS</b></td>
+    </tr>
+    <tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 精心伪装的朝鲜朝鲜朝鲜朝鲜朝鲜特种兵，还是还是还是还是还是还是在一月二十一日晚八时左右，摸进了汉城。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004509-00000108.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00004509-00000047.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00004509-00000047.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00004509-00000047.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00004509-00000047.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00004509-00000047.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00004509-00000047.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00004509-00000047.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00004509-00000047.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00004509-00000047.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00004509-00000047.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+    <tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 希望自己也可以用盐雕，希望自己也可以用盐雕，希望自己也可以用盐雕，希望自己也可以用盐雕，希望自己也可以用盐雕，设计出自己钟爱的玩偶造型。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004516-00000068.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00004516-00000111.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00004516-00000111.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00004516-00000111.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00004516-00000111.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00004516-00000111.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00004516-00000111.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00004516-00000111.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00004516-00000111.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00004516-00000111.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00004516-00000111.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+    <tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 日本军队跨进了离上海约两百英里的，日本军队跨进了离上海约两百英里的，日本军队跨进了离上海约两百英里的，日本军队跨进了离上海约两百英里的，日本军队跨进了离上海约两百英里的，中国首都蓝南京的大门。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004571-00000039.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00004571-00000005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00004571-00000005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00004571-00000005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00004571-00000005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00004571-00000005.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00004571-00000005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00004571-00000005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00004571-00000005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00004571-00000005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00004571-00000005.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+    <tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 灾难灾难灾难灾难灾难灾难和痛苦从此离他而去去去去去去去，而愉快和幸福幸福幸福幸福幸福却时常陪伴着陪伴着陪伴着陪伴着陪伴着陪伴着他。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004754-00000064.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00004754-00000102.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00004754-00000102.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00004754-00000102.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00004754-00000102.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00004754-00000102.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00004754-00000102.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00004754-00000102.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00004754-00000102.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00004754-00000102.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00004754-00000102.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+    <tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 尤文图斯将将将将将将将与阿森纳，争斗葡萄牙中场威廉卡瓦诺诺诺诺诺诺。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004885-00000041.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00004885-00000056.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00004885-00000056.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00004885-00000056.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00004885-00000056.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00004885-00000056.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00004885-00000056.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00004885-00000056.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00004885-00000056.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00004885-00000056.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00004885-00000056.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 趋势是是是是是是是好的，但是如何如何如何如何如何如何如何做，从从从从从哪里开始开始开始开始开始开始开始，阿里巴巴阿里巴巴阿里巴巴阿里巴巴阿里巴巴阿里巴巴同样需要需要需要需要需要摸索摸索摸索摸索摸索摸索摸索。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005045-00000094.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00005045-00000040.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00005045-00000040.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00005045-00000040.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00005045-00000040.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00005045-00000040.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00005045-00000040.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00005045-00000040.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00005045-00000040.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00005045-00000040.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00005045-00000040.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 但到投票前日，内菲斯竟以黑马之姿冲过席尔瓦，内菲斯竟以黑马之姿冲过席尔瓦，内菲斯竟以黑马之姿冲过席尔瓦，内菲斯竟以黑马之姿冲过席尔瓦，内菲斯竟以黑马之姿冲过席尔瓦，日渐下降的支持率。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005117-00000056.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00005117-00000023.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00005117-00000023.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00005117-00000023.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00005117-00000023.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00005117-00000023.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00005117-00000023.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00005117-00000023.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00005117-00000023.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00005117-00000023.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00005117-00000023.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 也将将将将将将将源自法国巴黎塞纳河畔塞纳河畔塞纳河畔塞纳河畔塞纳河畔塞纳河畔的的的的的的永恒承诺承诺承诺承诺承诺承诺，带给带给带给带给带给带给了了了了了了无数猎人。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005377-00000114.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/00005377-00000071.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/00005377-00000071.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/00005377-00000071.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/00005377-00000071.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/00005377-00000071.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/00005377-00000071.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/00005377-00000071.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/00005377-00000071.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/00005377-00000071.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/00005377-00000071.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 凸玻璃比凹玻璃凸，凹玻璃比凸玻璃凹。凸玻璃比凹玻璃凸，凹玻璃比凸玻璃凹。凸玻璃比凹玻璃凸，凹玻璃比凸玻璃凹。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005466-00000059.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0005.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0005.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0005.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0005.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 黄花花黄黄花黄，花黄黄花朵朵黄，朵朵黄花黄又香，黄花花香向太阳。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004600-00000067.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0013.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0013.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0013.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0013.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0013.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0013.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0013.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0013.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0013.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0013.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 叔叔买书，姑姑买布。叔叔读书，姑姑染布。叔叔读完书帮姑姑染布，姑姑染好布帮叔叔读书。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005496-00000011.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0014.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0014.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0014.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0014.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0014.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0014.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0014.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0014.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0014.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0014.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 南南和兰兰南南帮阿姨摆盘，兰兰帮阿姨摆碗。碗对着盘，盘对着碗。阿姨夸南南和兰兰，把碗盘摆的真好看。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004722-00000054.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0015.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0015.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0015.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0015.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0015.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0015.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0015.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0015.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0015.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0015.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 红孩子和黄孩子换鞋子红孩子穿双黄鞋子，黄孩子穿双红鞋子。红孩子用黄鞋子换黄孩子的红鞋子，黄孩子用红鞋子换红孩子的黄鞋子。红孩子穿上了红鞋子，黄孩子穿上了黄鞋子。红孩子和黄孩子，换过鞋子乐滋滋。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005304-00000037.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0020.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0020.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0020.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0020.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0020.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0020.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0020.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0020.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0020.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0020.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 民兵排选标兵，六班的标兵七班的标兵八班的标兵，评比台前比选先进，比比谁更先进，选拔八名全排标兵上北京。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004885-00000041.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0021.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0021.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0021.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0021.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0021.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0021.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0021.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0021.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0021.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0021.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 墙上画凤凰，凤凰画在粉红墙。红凤凰、粉凤凰，红粉凤凰、花凤凰。红凤凰，黄凤凰，红粉凤凰，粉红凤凰，花粉花凤凰。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00004558-00000085.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0025.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0025.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0025.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0025.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0025.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0025.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0025.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0025.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0025.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0025.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+	<tr>
+      <td align="center"> Text </td>
+      <th align="left" colspan="6" > 四是四，十是十，十四是十四，四十是四十。莫把四字说成十，休将十字说成四。若要分清四十和十四，经常练说十和四。</th>
+    </tr>
+    <tr>
+      <td align="center"> Speech </td>
+      <td><audio controls=""><source src="objective/prompt/00005314-00000078.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E/raokouling-0087.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R/raokouling-0087.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E R(Greedy)/raokouling-0087.wav"></audio></td>
+      <td><audio controls=""><source src="objective/VALL-E BOTH/raokouling-0087.wav"></audio></td>
+      <td><audio controls=""><source src="objective/ours/raokouling-0087.wav"></audio></td>
+    </tr>
+    <tr>
+      <td align="center"> Figure </td>
+      <td></td>
+      <td><img src="objective/VALL-E/raokouling-0087.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R/raokouling-0087.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E R(Greedy)/raokouling-0087.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/VALL-E BOTH/raokouling-0087.wav.png" alt="" width="300" height="200"></td>
+      <td><img src="objective/ours/raokouling-0087.wav.png" alt="" width="300" height="200"></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Speech Samples from Subjective evaluations</h3>
+<table>
+  <tbody>
+    <tr>
+      <td align="center">Prompt Speech</td>
+      <td align="center">GT</td>
+      <td align="center">VALL-E</td>
+      <td align="center">VALL-E R</td>
+      <td align="center"><b>OURS</b></td>
+    
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/004_010059.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/004010021.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/004_010059_010021.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/004_010059_010021.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/004_010059_010021.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/009_230360.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/009010080.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/009_230360_010080.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/009_230360_010080.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/009_230360_010080.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/147_210257.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/147010012.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/147_210257_010012.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/147_210257_010012.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/147_210257_010012.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/1287_00000006.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/00001287-00000008.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/1287_00000006_00000008.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/1287_00000006_00000008.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/1287_00000006_00000008.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/3514_00000013.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/00003514-00000046.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/3514_00000013_00000046.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/3514_00000013_00000046.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/3514_00000013_00000046.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/8681_00000024.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/00008681-00000032.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/8681_00000024_00000032.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/8681_00000024_00000032.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/8681_00000024_00000032.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/SSB1219_0247.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/SSB12190100.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/SSB1219_0247_SSB12190100.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/SSB1219_0247_SSB12190100.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/SSB1219_0247_SSB12190100.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/SSB1630_0178.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/SSB16300495.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/SSB1630_0178_SSB16300495.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/SSB1630_0178_SSB16300495.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/SSB1630_0178_SSB16300495.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/SSB1219_0247.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/SSB12190100.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/SSB1219_0247_SSB12190100.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/SSB1219_0247_SSB12190100.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/SSB1219_0247_SSB12190100.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/SSB1745_0299.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/SSB17450489.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/SSB1745_0299_SSB17450489.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/SSB1745_0299_SSB17450489.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/SSB1745_0299_SSB17450489.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/wc_7200529.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/wc-7200014.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/wc_7200529_7200014.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/wc_7200529_7200014.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/wc_7200529_7200014.wav"></audio></td>
+    </tr>
+    <tr>
+      <td><audio controls=""><source src="subjective/GT/zz_7200074.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/GT/zz-7200010.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E/zz_7200074_7200010.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/VALL-E R/zz_7200074_7200010.wav"></audio></td>
+      <td><audio controls=""><source src="subjective/ours/zz_7200074_7200010.wav"></audio></td>
+    </tr>
+  </tbody>
+</table>
+
+
